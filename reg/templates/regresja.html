@@ -1,0 +1,273 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Regresja</title>
+		<style>
+			table { border-collapse: collapse;}
+			table, td, th {	border: 1px solid black;}
+			table {margin:0 auto;}
+			button {margin:0 auto;}
+			.reg {width: 720px; margin:0 auto;}
+			div {margin:0 auto;} 
+			h1 {margin-bottom:0px;}
+		</style>
+	</head>
+	
+	<body>
+	
+	<h1 align="center">Regresja liniowa</h1>
+	
+	<script type="text/javascript" src="https://mpld3.github.io/js/d3.v3.min.js"></script> <script type="text/javascript" src="https://mpld3.github.io/js/mpld3.v0.3.js"></script> <div id="fig_el1030428077198153201497106343"></div> <script type="text/javascript"> !function(mpld3){ mpld3.draw_figure("fig_el1030428077198153201497106343", {"width": 1200.0, "height": 880.0, "axes": [{"bbox": [0.125, 0.10999999999999999, 0.775, 0.77], "xlim": [64.0, 64000.0], "ylim": [0.0, 1.0], "xdomain": [64.0, 64000.0], "ydomain": [0.0, 850.0], "xscale": "linear", "yscale": "linear", "axes": [{"position": "bottom", "nticks": 8, "tickvalues": null, "tickformat": null, "scale": "linear", "fontsize": 10.0, "grid": {"gridOn": true}, "visible": true}, {"position": "left", "nticks": 6, "tickvalues": null, "tickformat": null, "scale": "linear", "fontsize": 10.0, "grid": {"gridOn": true}, "visible": true}], "axesbg": "#FFFFFF", "axesbgalpha": null, "zoomable": true, "id": "el103042807719858528", "lines": [{"data": "data01", "xindex": 0, "yindex": 1, "coordinates": "data", "id": "el103042807720100024", "color": "#1F77B4", "linewidth": 1.5, "dasharray": "none", "alpha": 1, "zorder": 2, "drawstyle": "default"}], "paths": [], "markers": [], "texts": [], "collections": [], "images": [], "sharex": [], "sharey": []}], "data": {"data01": [[64.0, -33.241725591324034], [64000.0, 723.5155113757646]]}, "id": "el103042807719815320", "plugins": [{"type": "reset"}, {"type": "zoom", "button": true, "enabled": false}, {"type": "boxzoom", "button": true, "enabled": false}]}); }(mpld3); </script>
+	
+	<div align="center">
+	<button title="Dane" type="button" onclick="if(document.getElementById('spoiler') .style.display=='none') {document.getElementById('spoiler') .style.display=''}else{document.getElementById('spoiler') .style.display='none'}">Dane</button>
+	<button title="Korelacja" type="button" onclick="if(document.getElementById('spoiler1') .style.display=='none') {document.getElementById('spoiler1') .style.display=''}else{document.getElementById('spoiler1') .style.display='none'}">Korelacja</button>
+	<button title="Regresja" type="button" onclick="if(document.getElementById('spoiler2') .style.display=='none') {document.getElementById('spoiler2') .style.display=''}else{document.getElementById('spoiler2') .style.display='none'}">Regresja</button>
+	</div>
+	
+	<div id="spoiler" style="display:none">
+	<br>
+		<p align="center"><b>Dane</b></p><br>
+		<table border="1" class="dataframe"> <thead> <tr style="text-align: left;"> 
+			<th></th> 
+				<th>Producent</th> <th>Model</th> <th>Cykl maszynowy</th> <th>Minimalna pamięć</th> <th>Maksymalna pamięć</th> <th>Pamięć cache</th> <th>Minimalna ilość kanałów</th> <th>Maksymalna ilość kanałów</th> <th>Przewidywana wydajność</th> <th>Przewidywana wydajność</th> </tr> </thead> 
+			<tbody> 
+				<tr> <th>0</th> <td>adviser</td> <td>32/60</td> <td>125</td> <td>256</td> <td>6000</td> <td>256</td> <td>16</td> <td>128</td> <td>198</td> <td>199</td> </tr> 
+				<tr> <th>1</th> <td>amdahl</td> <td>470v/7</td> <td>29</td> <td>8000</td> <td>32000</td> <td>32</td> <td>8</td> <td>32</td> <td>269</td> <td>253</td> </tr> 
+				<tr> <th>2</th> <td>amdahl</td> <td>470v/7a</td> <td>29</td> <td>8000</td> <td>32000</td> <td>32</td> <td>8</td> <td>32</td> <td>220</td> <td>253</td> </tr> 
+				<tr> <th>3</th> <td>amdahl</td> <td>470v/7b</td> <td>29</td> <td>8000</td> <td>32000</td> <td>32</td> <td>8</td> <td>32</td> <td>172</td> <td>253</td> </tr> 
+				<tr> <th>4</th> <td>amdahl</td> <td>470v/7c</td> <td>29</td> <td>8000</td> <td>16000</td> <td>32</td> <td>8</td> <td>16</td> <td>132</td> <td>132</td> </tr> 
+				<tr> <th>5</th> <td>amdahl</td> <td>470v/b</td> <td>26</td> <td>8000</td> <td>32000</td> <td>64</td> <td>8</td> <td>32</td> <td>318</td> <td>290</td> </tr> 
+				<tr> <th>6</th> <td>amdahl</td> <td>580-5840</td> <td>23</td> <td>16000</td> <td>32000</td> <td>64</td> <td>16</td> <td>32</td> <td>367</td> <td>381</td> </tr> 
+				<tr> <th>7</th> <td>amdahl</td> <td>580-5850</td> <td>23</td> <td>16000</td> <td>32000</td> <td>64</td> <td>16</td> <td>32</td> <td>489</td> <td>381</td> </tr> 
+				<tr> <th>8</th> <td>amdahl</td> <td>580-5860</td> <td>23</td> <td>16000</td> <td>64000</td> <td>64</td> <td>16</td> <td>32</td> <td>636</td> <td>749</td> </tr> 
+				<tr> <th>9</th> <td>amdahl</td> <td>580-5880</td> <td>23</td> <td>32000</td> <td>64000</td> <td>128</td> <td>32</td> <td>64</td> <td>1144</td> <td>1238</td> </tr> 
+				<tr> <th>10</th> <td>apollo</td> <td>dn320</td> <td>400</td> <td>1000</td> <td>3000</td> <td>0</td> <td>1</td> <td>2</td> <td>38</td> <td>23</td> </tr> 
+				<tr> <th>11</th> <td>apollo</td> <td>dn420</td> <td>400</td> <td>512</td> <td>3500</td> <td>4</td> <td>1</td> <td>6</td> <td>40</td> <td>24</td> </tr> 
+				<tr> <th>12</th> <td>basf</td> <td>7/65</td> <td>60</td> <td>2000</td> <td>8000</td> <td>65</td> <td>1</td> <td>8</td> <td>92</td> <td>70</td> </tr> 
+				<tr> <th>13</th> <td>basf</td> <td>7/68</td> <td>50</td> <td>4000</td> <td>16000</td> <td>65</td> <td>1</td> <td>8</td> <td>138</td> <td>117</td> </tr> 
+				<tr> <th>14</th> <td>bti</td> <td>5000</td> <td>350</td> <td>64</td> <td>64</td> <td>0</td> <td>1</td> <td>4</td> <td>10</td> <td>15</td> </tr> 
+				<tr> <th>15</th> <td>bti</td> <td>8000</td> <td>200</td> <td>512</td> <td>16000</td> <td>0</td> <td>4</td> <td>32</td> <td>35</td> <td>64</td> </tr> 
+				<tr> <th>16</th> <td>burroughs</td> <td>b1955</td> <td>167</td> <td>524</td> <td>2000</td> <td>8</td> <td>4</td> <td>15</td> <td>19</td> <td>23</td> </tr> 
+				<tr> <th>17</th> <td>burroughs</td> <td>b2900</td> <td>143</td> <td>512</td> <td>5000</td> <td>0</td> <td>7</td> <td>32</td> <td>28</td> <td>29</td> </tr> 
+				<tr> <th>18</th> <td>burroughs</td> <td>b2925</td> <td>143</td> <td>1000</td> <td>2000</td> <td>0</td> <td>5</td> <td>16</td> <td>31</td> <td>22</td> </tr> 
+				<tr> <th>19</th> <td>burroughs</td> <td>b4955</td> <td>110</td> <td>5000</td> <td>5000</td> <td>142</td> <td>8</td> <td>64</td> <td>120</td> <td>124</td> </tr> 
+				<tr> <th>20</th> <td>burroughs</td> <td>b5900</td> <td>143</td> <td>1500</td> <td>6300</td> <td>0</td> <td>5</td> <td>32</td> <td>30</td> <td>35</td> </tr> 
+				<tr> <th>21</th> <td>burroughs</td> <td>b5920</td> <td>143</td> <td>3100</td> <td>6200</td> <td>0</td> <td>5</td> <td>20</td> <td>33</td> <td>39</td> </tr> 
+				<tr> <th>22</th> <td>burroughs</td> <td>b6900</td> <td>143</td> <td>2300</td> <td>6200</td> <td>0</td> <td>6</td> <td>64</td> <td>61</td> <td>40</td> </tr> 
+				<tr> <th>23</th> <td>burroughs</td> <td>b6925</td> <td>110</td> <td>3100</td> <td>6200</td> <td>0</td> <td>6</td> <td>64</td> <td>76</td> <td>45</td> </tr> 
+				<tr> <th>24</th> <td>c.r.d</td> <td>68/10-80</td> <td>320</td> <td>128</td> <td>6000</td> <td>0</td> <td>1</td> <td>12</td> <td>23</td> <td>28</td> </tr> 
+				<tr> <th>25</th> <td>c.r.d</td> <td>universe:2203t</td> <td>320</td> <td>512</td> <td>2000</td> <td>4</td> <td>1</td> <td>3</td> <td>69</td> <td>21</td> </tr> 
+				<tr> <th>26</th> <td>c.r.d</td> <td>universe:68</td> <td>320</td> <td>256</td> <td>6000</td> <td>0</td> <td>1</td> <td>6</td> <td>33</td> <td>28</td> </tr> 
+				<tr> <th>27</th> <td>c.r.d</td> <td>universe:68/05</td> <td>320</td> <td>256</td> <td>3000</td> <td>4</td> <td>1</td> <td>3</td> <td>27</td> <td>22</td> </tr> 
+				<tr> <th>28</th> <td>c.r.d</td> <td>universe:68/137</td> <td>320</td> <td>512</td> <td>5000</td> <td>4</td> <td>1</td> <td>5</td> <td>77</td> <td>28</td> </tr> 
+				<tr> <th>29</th> <td>c.r.d</td> <td>universe:68/37</td> <td>320</td> <td>256</td> <td>5000</td> <td>4</td> <td>1</td> <td>6</td> <td>27</td> <td>27</td> </tr> 
+				<tr> <th>30</th> <td>cdc</td> <td>cyber:170/750</td> <td>25</td> <td>1310</td> <td>2620</td> <td>131</td> <td>12</td> <td>24</td> <td>274</td> <td>102</td> </tr> 
+				<tr> <th>31</th> <td>cdc</td> <td>cyber:170/760</td> <td>25</td> <td>1310</td> <td>2620</td> <td>131</td> <td>12</td> <td>24</td> <td>368</td> <td>102</td> </tr> 
+				<tr> <th>32</th> <td>cdc</td> <td>cyber:170/815</td> <td>50</td> <td>2620</td> <td>10480</td> <td>30</td> <td>12</td> <td>24</td> <td>32</td> <td>74</td> </tr> 
+				<tr> <th>33</th> <td>cdc</td> <td>cyber:170/825</td> <td>50</td> <td>2620</td> <td>10480</td> <td>30</td> <td>12</td> <td>24</td> <td>63</td> <td>74</td> </tr> 
+				<tr> <th>34</th> <td>cdc</td> <td>cyber:170/835</td> <td>56</td> <td>5240</td> <td>20970</td> <td>30</td> <td>12</td> <td>24</td> <td>106</td> <td>138</td> </tr> 
+				<tr> <th>35</th> <td>cdc</td> <td>cyber:170/845</td> <td>64</td> <td>5240</td> <td>20970</td> <td>30</td> <td>12</td> <td>24</td> <td>208</td> <td>136</td> </tr> 
+				<tr> <th>36</th> <td>cdc</td> <td>omega:480-i</td> <td>50</td> <td>500</td> <td>2000</td> <td>8</td> <td>1</td> <td>4</td> <td>20</td> <td>23</td> </tr> 
+				<tr> <th>37</th> <td>cdc</td> <td>omega:480-ii</td> <td>50</td> <td>1000</td> <td>4000</td> <td>8</td> <td>1</td> <td>5</td> <td>29</td> <td>29</td> </tr> 
+				<tr> <th>38</th> <td>cdc</td> <td>omega:480-iii</td> <td>50</td> <td>2000</td> <td>8000</td> <td>8</td> <td>1</td> <td>5</td> <td>71</td> <td>44</td> </tr> 
+				<tr> <th>39</th> <td>cambex</td> <td>1636-1</td> <td>50</td> <td>1000</td> <td>4000</td> <td>8</td> <td>3</td> <td>5</td> <td>26</td> <td>30</td> </tr> 
+				<tr> <th>40</th> <td>cambex</td> <td>1636-10</td> <td>50</td> <td>1000</td> <td>8000</td> <td>8</td> <td>3</td> <td>5</td> <td>36</td> <td>41</td> </tr> 
+				<tr> <th>41</th> <td>cambex</td> <td>1641-1</td> <td>50</td> <td>2000</td> <td>16000</td> <td>8</td> <td>3</td> <td>5</td> <td>40</td> <td>74</td> </tr> 
+				<tr> <th>42</th> <td>cambex</td> <td>1641-11</td> <td>50</td> <td>2000</td> <td>16000</td> <td>8</td> <td>3</td> <td>6</td> <td>52</td> <td>74</td> </tr> 
+				<tr> <th>43</th> <td>cambex</td> <td>1651-1</td> <td>50</td> <td>2000</td> <td>16000</td> <td>8</td> <td>3</td> <td>6</td> <td>60</td> <td>74</td> </tr> 
+				<tr> <th>44</th> <td>dec</td> <td>decsys:10:1091</td> <td>133</td> <td>1000</td> <td>12000</td> <td>9</td> <td>3</td> <td>12</td> <td>72</td> <td>54</td> </tr> 
+				<tr> <th>45</th> <td>dec</td> <td>decsys:20:2060</td> <td>133</td> <td>1000</td> <td>8000</td> <td>9</td> <td>3</td> <td>12</td> <td>72</td> <td>41</td> </tr> 
+				<tr> <th>46</th> <td>dec</td> <td>microvax-1</td> <td>810</td> <td>512</td> <td>512</td> <td>8</td> <td>1</td> <td>1</td> <td>18</td> <td>18</td> </tr> 
+				<tr> <th>47</th> <td>dec</td> <td>vax:11/730</td> <td>810</td> <td>1000</td> <td>5000</td> <td>0</td> <td>1</td> <td>1</td> <td>20</td> <td>28</td> </tr> 
+				<tr> <th>48</th> <td>dec</td> <td>vax:11/750</td> <td>320</td> <td>512</td> <td>8000</td> <td>4</td> <td>1</td> <td>5</td> <td>40</td> <td>36</td> </tr> 
+				<tr> <th>49</th> <td>dec</td> <td>vax:11/780</td> <td>200</td> <td>512</td> <td>8000</td> <td>8</td> <td>1</td> <td>8</td> <td>62</td> <td>38</td> </tr> 
+				<tr> <th>50</th> <td>dg</td> <td>eclipse:c/350</td> <td>700</td> <td>384</td> <td>8000</td> <td>0</td> <td>1</td> <td>1</td> <td>24</td> <td>34</td> </tr> 
+				<tr> <th>51</th> <td>dg</td> <td>eclipse:m/600</td> <td>700</td> <td>256</td> <td>2000</td> <td>0</td> <td>1</td> <td>1</td> <td>24</td> <td>19</td> </tr> 
+				<tr> <th>52</th> <td>dg</td> <td>eclipse:mv/10000</td> <td>140</td> <td>1000</td> <td>16000</td> <td>16</td> <td>1</td> <td>3</td> <td>138</td> <td>72</td> </tr> 
+				<tr> <th>53</th> <td>dg</td> <td>eclipse:mv/4000</td> <td>200</td> <td>1000</td> <td>8000</td> <td>0</td> <td>1</td> <td>2</td> <td>36</td> <td>36</td> </tr> 
+				<tr> <th>54</th> <td>dg</td> <td>eclipse:mv/6000</td> <td>110</td> <td>1000</td> <td>4000</td> <td>16</td> <td>1</td> <td>2</td> <td>26</td> <td>30</td> </tr> 
+				<tr> <th>55</th> <td>dg</td> <td>eclipse:mv/8000</td> <td>110</td> <td>1000</td> <td>12000</td> <td>16</td> <td>1</td> <td>2</td> <td>60</td> <td>56</td> </tr> 
+				<tr> <th>56</th> <td>dg</td> <td>eclipse:mv/8000-ii</td> <td>220</td> <td>1000</td> <td>8000</td> <td>16</td> <td>1</td> <td>2</td> <td>71</td> <td>42</td> </tr> 
+				<tr> <th>57</th> <td>formation</td> <td>f4000/100</td> <td>800</td> <td>256</td> <td>8000</td> <td>0</td> <td>1</td> <td>4</td> <td>12</td> <td>34</td> </tr> 
+				<tr> <th>58</th> <td>formation</td> <td>f4000/200</td> <td>800</td> <td>256</td> <td>8000</td> <td>0</td> <td>1</td> <td>4</td> <td>14</td> <td>34</td> </tr> 
+				<tr> <th>59</th> <td>formation</td> <td>f4000/200ap</td> <td>800</td> <td>256</td> <td>8000</td> <td>0</td> <td>1</td> <td>4</td> <td>20</td> <td>34</td> </tr> 
+				<tr> <th>60</th> <td>formation</td> <td>f4000/300</td> <td>800</td> <td>256</td> <td>8000</td> <td>0</td> <td>1</td> <td>4</td> <td>16</td> <td>34</td> </tr> 
+				<tr> <th>61</th> <td>formation</td> <td>f4000/300ap</td> <td>800</td> <td>256</td> <td>8000</td> <td>0</td> <td>1</td> <td>4</td> <td>22</td> <td>34</td> </tr> 
+				<tr> <th>62</th> <td>four-phase</td> <td>2000/260</td> <td>125</td> <td>512</td> <td>1000</td> <td>0</td> <td>8</td> <td>20</td> <td>36</td> <td>19</td> </tr> 
+				<tr> <th>63</th> <td>gould</td> <td>concept:32/8705</td> <td>75</td> <td>2000</td> <td>8000</td> <td>64</td> <td>1</td> <td>38</td> <td>144</td> <td>75</td> </tr> 
+				<tr> <th>64</th> <td>gould</td> <td>concept:32/8750</td> <td>75</td> <td>2000</td> <td>16000</td> <td>64</td> <td>1</td> <td>38</td> <td>144</td> <td>113</td> </tr> 
+				<tr> <th>65</th> <td>gould</td> <td>concept:32/8780</td> <td>75</td> <td>2000</td> <td>16000</td> <td>128</td> <td>1</td> <td>38</td> <td>259</td> <td>157</td> </tr> 
+				<tr> <th>66</th> <td>hp</td> <td>3000/30</td> <td>90</td> <td>256</td> <td>1000</td> <td>0</td> <td>3</td> <td>10</td> <td>17</td> <td>18</td> </tr> 
+				<tr> <th>67</th> <td>hp</td> <td>3000/40</td> <td>105</td> <td>256</td> <td>2000</td> <td>0</td> <td>3</td> <td>10</td> <td>26</td> <td>20</td> </tr> 
+				<tr> <th>68</th> <td>hp</td> <td>3000/44</td> <td>105</td> <td>1000</td> <td>4000</td> <td>0</td> <td>3</td> <td>24</td> <td>32</td> <td>28</td> </tr> 
+				<tr> <th>69</th> <td>hp</td> <td>3000/48</td> <td>105</td> <td>2000</td> <td>4000</td> <td>8</td> <td>3</td> <td>19</td> <td>32</td> <td>33</td> </tr> 
+				<tr> <th>70</th> <td>hp</td> <td>3000/64</td> <td>75</td> <td>2000</td> <td>8000</td> <td>8</td> <td>3</td> <td>24</td> <td>62</td> <td>47</td> </tr> 
+				<tr> <th>71</th> <td>hp</td> <td>3000/88</td> <td>75</td> <td>3000</td> <td>8000</td> <td>8</td> <td>3</td> <td>48</td> <td>64</td> <td>54</td> </tr> 
+				<tr> <th>72</th> <td>hp</td> <td>3000/iii</td> <td>175</td> <td>256</td> <td>2000</td> <td>0</td> <td>3</td> <td>24</td> <td>22</td> <td>20</td> </tr> 
+				<tr> <th>73</th> <td>harris</td> <td>100</td> <td>300</td> <td>768</td> <td>3000</td> <td>0</td> <td>6</td> <td>24</td> <td>36</td> <td>23</td> </tr> 
+				<tr> <th>74</th> <td>harris</td> <td>300</td> <td>300</td> <td>768</td> <td>3000</td> <td>6</td> <td>6</td> <td>24</td> <td>44</td> <td>25</td> </tr> 
+				<tr> <th>75</th> <td>harris</td> <td>500</td> <td>300</td> <td>768</td> <td>12000</td> <td>6</td> <td>6</td> <td>24</td> <td>50</td> <td>52</td> </tr> 
+				<tr> <th>76</th> <td>harris</td> <td>600</td> <td>300</td> <td>768</td> <td>4500</td> <td>0</td> <td>1</td> <td>24</td> <td>45</td> <td>27</td> </tr> 
+				<tr> <th>77</th> <td>harris</td> <td>700</td> <td>300</td> <td>384</td> <td>12000</td> <td>6</td> <td>1</td> <td>24</td> <td>53</td> <td>50</td> </tr> 
+				<tr> <th>78</th> <td>harris</td> <td>80</td> <td>300</td> <td>192</td> <td>768</td> <td>6</td> <td>6</td> <td>24</td> <td>36</td> <td>18</td> </tr> 
+				<tr> <th>79</th> <td>harris</td> <td>800</td> <td>180</td> <td>768</td> <td>12000</td> <td>6</td> <td>1</td> <td>31</td> <td>84</td> <td>53</td> </tr> 
+				<tr> <th>80</th> <td>honeywell</td> <td>dps:6/35</td> <td>330</td> <td>1000</td> <td>3000</td> <td>0</td> <td>2</td> <td>4</td> <td>16</td> <td>23</td> </tr> 
+				<tr> <th>81</th> <td>honeywell</td> <td>dps:6/92</td> <td>300</td> <td>1000</td> <td>4000</td> <td>8</td> <td>3</td> <td>64</td> <td>38</td> <td>30</td> </tr> 
+				<tr> <th>82</th> <td>honeywell</td> <td>dps:6/96</td> <td>300</td> <td>1000</td> <td>16000</td> <td>8</td> <td>2</td> <td>112</td> <td>38</td> <td>73</td> </tr> 
+				<tr> <th>83</th> <td>honeywell</td> <td>dps:7/35</td> <td>330</td> <td>1000</td> <td>2000</td> <td>0</td> <td>1</td> <td>2</td> <td>16</td> <td>20</td> </tr> 
+				<tr> <th>84</th> <td>honeywell</td> <td>dps:7/45</td> <td>330</td> <td>1000</td> <td>4000</td> <td>0</td> <td>3</td> <td>6</td> <td>22</td> <td>25</td> </tr> 
+				<tr> <th>85</th> <td>honeywell</td> <td>dps:7/55</td> <td>140</td> <td>2000</td> <td>4000</td> <td>0</td> <td>3</td> <td>6</td> <td>29</td> <td>28</td> </tr> 
+				<tr> <th>86</th> <td>honeywell</td> <td>dps:7/65</td> <td>140</td> <td>2000</td> <td>4000</td> <td>0</td> <td>4</td> <td>8</td> <td>40</td> <td>29</td> </tr> 
+				<tr> <th>87</th> <td>honeywell</td> <td>dps:8/44</td> <td>140</td> <td>2000</td> <td>4000</td> <td>8</td> <td>1</td> <td>20</td> <td>35</td> <td>32</td> </tr> 
+				<tr> <th>88</th> <td>honeywell</td> <td>dps:8/49</td> <td>140</td> <td>2000</td> <td>32000</td> <td>32</td> <td>1</td> <td>20</td> <td>134</td> <td>175</td> </tr> 
+				<tr> <th>89</th> <td>honeywell</td> <td>dps:8/50</td> <td>140</td> <td>2000</td> <td>8000</td> <td>32</td> <td>1</td> <td>54</td> <td>66</td> <td>57</td> </tr> 
+				<tr> <th>90</th> <td>honeywell</td> <td>dps:8/52</td> <td>140</td> <td>2000</td> <td>32000</td> <td>32</td> <td>1</td> <td>54</td> <td>141</td> <td>181</td> </tr> 
+				<tr> <th>91</th> <td>honeywell</td> <td>dps:8/62</td> <td>140</td> <td>2000</td> <td>32000</td> <td>32</td> <td>1</td> <td>54</td> <td>189</td> <td>181</td> </tr> 
+				<tr> <th>92</th> <td>honeywell</td> <td>dps:8/20</td> <td>140</td> <td>2000</td> <td>4000</td> <td>8</td> <td>1</td> <td>20</td> <td>22</td> <td>32</td> </tr> 
+				<tr> <th>93</th> <td>ibm</td> <td>3033:s</td> <td>57</td> <td>4000</td> <td>16000</td> <td>1</td> <td>6</td> <td>12</td> <td>132</td> <td>82</td> </tr> 
+				<tr> <th>94</th> <td>ibm</td> <td>3033:u</td> <td>57</td> <td>4000</td> <td>24000</td> <td>64</td> <td>12</td> <td>16</td> <td>237</td> <td>171</td> </tr> 
+				<tr> <th>95</th> <td>ibm</td> <td>3081</td> <td>26</td> <td>16000</td> <td>32000</td> <td>64</td> <td>16</td> <td>24</td> <td>465</td> <td>361</td> </tr> 
+				<tr> <th>96</th> <td>ibm</td> <td>3081:d</td> <td>26</td> <td>16000</td> <td>32000</td> <td>64</td> <td>8</td> <td>24</td> <td>465</td> <td>350</td> </tr> 
+				<tr> <th>97</th> <td>ibm</td> <td>3083:b</td> <td>26</td> <td>8000</td> <td>32000</td> <td>0</td> <td>8</td> <td>24</td> <td>277</td> <td>220</td> </tr> 
+				<tr> <th>98</th> <td>ibm</td> <td>3083:e</td> <td>26</td> <td>8000</td> <td>16000</td> <td>0</td> <td>8</td> <td>16</td> <td>185</td> <td>113</td> </tr> 
+				<tr> <th>99</th> <td>ibm</td> <td>370/125-2</td> <td>480</td> <td>96</td> <td>512</td> <td>0</td> <td>1</td> <td>1</td> <td>6</td> <td>15</td> </tr> 
+				<tr> <th>100</th> <td>ibm</td> <td>370/148</td> <td>203</td> <td>1000</td> <td>2000</td> <td>0</td> <td>1</td> <td>5</td> <td>24</td> <td>21</td> </tr> 
+				<tr> <th>101</th> <td>ibm</td> <td>370/158-3</td> <td>115</td> <td>512</td> <td>6000</td> <td>16</td> <td>1</td> <td>6</td> <td>45</td> <td>35</td> </tr> 
+				<tr> <th>102</th> <td>ibm</td> <td>38/3</td> <td>1100</td> <td>512</td> <td>1500</td> <td>0</td> <td>1</td> <td>1</td> <td>7</td> <td>18</td> </tr> 
+				<tr> <th>103</th> <td>ibm</td> <td>38/4</td> <td>1100</td> <td>768</td> <td>2000</td> <td>0</td> <td>1</td> <td>1</td> <td>13</td> <td>20</td> </tr> 
+				<tr> <th>104</th> <td>ibm</td> <td>38/5</td> <td>600</td> <td>768</td> <td>2000</td> <td>0</td> <td>1</td> <td>1</td> <td>16</td> <td>20</td> </tr> 
+				<tr> <th>105</th> <td>ibm</td> <td>38/7</td> <td>400</td> <td>2000</td> <td>4000</td> <td>0</td> <td>1</td> <td>1</td> <td>32</td> <td>28</td> </tr> 
+				<tr> <th>106</th> <td>ibm</td> <td>38/8</td> <td>400</td> <td>4000</td> <td>8000</td> <td>0</td> <td>1</td> <td>1</td> <td>32</td> <td>45</td> </tr> 
+				<tr> <th>107</th> <td>ibm</td> <td>4321</td> <td>900</td> <td>1000</td> <td>1000</td> <td>0</td> <td>1</td> <td>2</td> <td>11</td> <td>18</td> </tr> 
+				<tr> <th>108</th> <td>ibm</td> <td>4331-1</td> <td>900</td> <td>512</td> <td>1000</td> <td>0</td> <td>1</td> <td>2</td> <td>11</td> <td>17</td> </tr> 
+				<tr> <th>109</th> <td>ibm</td> <td>4331-11</td> <td>900</td> <td>1000</td> <td>4000</td> <td>4</td> <td>1</td> <td>2</td> <td>18</td> <td>26</td> </tr> 
+				<tr> <th>110</th> <td>ibm</td> <td>4331-2</td> <td>900</td> <td>1000</td> <td>4000</td> <td>8</td> <td>1</td> <td>2</td> <td>22</td> <td>28</td> </tr> 
+				<tr> <th>111</th> <td>ibm</td> <td>4341</td> <td>900</td> <td>2000</td> <td>4000</td> <td>0</td> <td>3</td> <td>6</td> <td>37</td> <td>28</td> </tr> 
+				<tr> <th>112</th> <td>ibm</td> <td>4341-1</td> <td>225</td> <td>2000</td> <td>4000</td> <td>8</td> <td>3</td> <td>6</td> <td>40</td> <td>31</td> </tr> 
+				<tr> <th>113</th> <td>ibm</td> <td>4341-10</td> <td>225</td> <td>2000</td> <td>4000</td> <td>8</td> <td>3</td> <td>6</td> <td>34</td> <td>31</td> </tr> 
+				<tr> <th>114</th> <td>ibm</td> <td>4341-11</td> <td>180</td> <td>2000</td> <td>8000</td> <td>8</td> <td>1</td> <td>6</td> <td>50</td> <td>42</td> </tr> 
+				<tr> <th>115</th> <td>ibm</td> <td>4341-12</td> <td>185</td> <td>2000</td> <td>16000</td> <td>16</td> <td>1</td> <td>6</td> <td>76</td> <td>76</td> </tr>
+				<tr> <th>116</th> <td>ibm</td> <td>4341-2</td> <td>180</td> <td>2000</td> <td>16000</td> <td>16</td> <td>1</td> <td>6</td> <td>66</td> <td>76</td> </tr> 
+				<tr> <th>117</th> <td>ibm</td> <td>4341-9</td> <td>225</td> <td>1000</td> <td>4000</td> <td>2</td> <td>3</td> <td>6</td> <td>24</td> <td>26</td> </tr> 
+				<tr> <th>118</th> <td>ibm</td> <td>4361-4</td> <td>25</td> <td>2000</td> <td>12000</td> <td>8</td> <td>1</td> <td>4</td> <td>49</td> <td>59</td> </tr> 
+				<tr> <th>119</th> <td>ibm</td> <td>4361-5</td> <td>25</td> <td>2000</td> <td>12000</td> <td>16</td> <td>3</td> <td>5</td> <td>66</td> <td>65</td> </tr> 
+				<tr> <th>120</th> <td>ibm</td> <td>4381-1</td> <td>17</td> <td>4000</td> <td>16000</td> <td>8</td> <td>6</td> <td>12</td> <td>100</td> <td>101</td> </tr>
+				<tr> <th>121</th> <td>ibm</td> <td>4381-2</td> <td>17</td> <td>4000</td> <td>16000</td> <td>32</td> <td>6</td> <td>12</td> <td>133</td> <td>116</td> </tr>
+				<tr> <th>122</th> <td>ibm</td> <td>8130-a</td> <td>1500</td> <td>768</td> <td>1000</td> <td>0</td> <td>0</td> <td>0</td> <td>12</td> <td>18</td> </tr> <tr>
+				<th>123</th> <td>ibm</td> <td>8130-b</td> <td>1500</td> <td>768</td> <td>2000</td> <td>0</td> <td>0</td> <td>0</td> <td>18</td> <td>20</td> </tr> 
+				<tr> <th>124</th> <td>ibm</td> <td>8140</td> <td>800</td> <td>768</td> <td>2000</td> <td>0</td> <td>0</td> <td>0</td> <td>20</td> <td>20</td> </tr> 
+				<tr> <th>125</th> <td>ipl</td> <td>4436</td> <td>50</td> <td>2000</td> <td>4000</td> <td>0</td> <td>3</td> <td>6</td> <td>27</td> <td>30</td> </tr> 
+				<tr> <th>126</th> <td>ipl</td> <td>4443</td> <td>50</td> <td>2000</td> <td>8000</td> <td>8</td> <td>3</td> <td>6</td> <td>45</td> <td>44</td> </tr> 
+				<tr> <th>127</th> <td>ipl</td> <td>4445</td> <td>50</td> <td>2000</td> <td>8000</td> <td>8</td> <td>1</td> <td>6</td> <td>56</td> <td>44</td> </tr> 
+				<tr> <th>128</th> <td>ipl</td> <td>4446</td> <td>50</td> <td>2000</td> <td>16000</td> <td>24</td> <td>1</td> <td>6</td> <td>70</td> <td>82</td> </tr>
+				<tr> <th>129</th> <td>ipl</td> <td>4460</td> <td>50</td> <td>2000</td> <td>16000</td> <td>24</td> <td>1</td> <td>6</td> <td>80</td> <td>82</td> </tr> 
+				<tr> <th>130</th> <td>ipl</td> <td>4480</td> <td>50</td> <td>8000</td> <td>16000</td> <td>48</td> <td>1</td> <td>10</td> <td>136</td> <td>128</td> </tr>
+				<tr> <th>131</th> <td>magnuson</td> <td>m80/30</td> <td>100</td> <td>1000</td> <td>8000</td> <td>0</td> <td>2</td> <td>6</td> <td>16</td> <td>37</td> </tr> 
+				<tr> <th>132</th> <td>magnuson</td> <td>m80/31</td> <td>100</td> <td>1000</td> <td>8000</td> <td>24</td> <td>2</td> <td>6</td> <td>26</td> <td>46</td> </tr>
+				<tr> <th>133</th> <td>magnuson</td> <td>m80/32</td> <td>100</td> <td>1000</td> <td>8000</td> <td>24</td> <td>3</td> <td>6</td> <td>32</td> <td>46</td> </tr>
+				<tr> <th>134</th> <td>magnuson</td> <td>m80/42</td> <td>50</td> <td>2000</td> <td>16000</td> <td>12</td> <td>3</td> <td>16</td> <td>45</td> <td>80</td> </tr>
+				<tr> <th>135</th> <td>magnuson</td> <td>m80/43</td> <td>50</td> <td>2000</td> <td>16000</td> <td>24</td> <td>6</td> <td>16</td> <td>54</td> <td>88</td> </tr>
+				<tr> <th>136</th> <td>magnuson</td> <td>m80/44</td> <td>50</td> <td>2000</td> <td>16000</td> <td>24</td> <td>6</td> <td>16</td> <td>65</td> <td>88</td> </tr>
+				<tr> <th>137</th> <td>microdata</td> <td>seq.ms/3200</td> <td>150</td> <td>512</td> <td>4000</td> <td>0</td> <td>8</td> <td>128</td> <td>30</td> <td>33</td> </tr> 
+				<tr> <th>138</th> <td>nas</td> <td>as/3000</td> <td>115</td> <td>2000</td> <td>8000</td> <td>16</td> <td>1</td> <td>3</td> <td>50</td> <td>46</td> </tr>
+				<tr> <th>139</th> <td>nas</td> <td>as/3000-n</td> <td>115</td> <td>2000</td> <td>4000</td> <td>2</td> <td>1</td> <td>5</td> <td>40</td> <td>29</td> </tr>
+				<tr> <th>140</th> <td>nas</td> <td>as/5000</td> <td>92</td> <td>2000</td> <td>8000</td> <td>32</td> <td>1</td> <td>6</td> <td>62</td> <td>53</td> </tr> 
+				<tr> <th>141</th> <td>nas</td> <td>as/5000-e</td> <td>92</td> <td>2000</td> <td>8000</td> <td>32</td> <td>1</td> <td>6</td> <td>60</td> <td>53</td> </tr>
+				<tr> <th>142</th> <td>nas</td> <td>as/5000-n</td> <td>92</td> <td>2000</td> <td>8000</td> <td>4</td> <td>1</td> <td>6</td> <td>50</td> <td>41</td> </tr>
+				<tr> <th>143</th> <td>nas</td> <td>as/6130</td> <td>75</td> <td>4000</td> <td>16000</td> <td>16</td> <td>1</td> <td>6</td> <td>66</td> <td>86</td> </tr>
+				<tr> <th>144</th> <td>nas</td> <td>as/6150</td> <td>60</td> <td>4000</td> <td>16000</td> <td>32</td> <td>1</td> <td>6</td> <td>86</td> <td>95</td> </tr>
+				<tr> <th>145</th> <td>nas</td> <td>as/6620</td> <td>60</td> <td>2000</td> <td>16000</td> <td>64</td> <td>5</td> <td>8</td> <td>74</td> <td>107</td> </tr> 
+				<tr> <th>146</th> <td>nas</td> <td>as/6630</td> <td>60</td> <td>4000</td> <td>16000</td> <td>64</td> <td>5</td> <td>8</td> <td>93</td> <td>117</td> </tr> 
+				<tr> <th>147</th> <td>nas</td> <td>as/6650</td> <td>50</td> <td>4000</td> <td>16000</td> <td>64</td> <td>5</td> <td>10</td> <td>111</td> <td>119</td> </tr>
+				<tr> <th>148</th> <td>nas</td> <td>as/7000</td> <td>72</td> <td>4000</td> <td>16000</td> <td>64</td> <td>8</td> <td>16</td> <td>143</td> <td>120</td> </tr>
+				<tr> <th>149</th> <td>nas</td> <td>as/7000-n</td> <td>72</td> <td>2000</td> <td>8000</td> <td>16</td> <td>6</td> <td>8</td> <td>105</td> <td>48</td> </tr>
+				<tr> <th>150</th> <td>nas</td> <td>as/8040</td> <td>40</td> <td>8000</td> <td>16000</td> <td>32</td> <td>8</td> <td>16</td> <td>214</td> <td>126</td> </tr> 
+				<tr> <th>151</th> <td>nas</td> <td>as/8050</td> <td>40</td> <td>8000</td> <td>32000</td> <td>64</td> <td>8</td> <td>24</td> <td>277</td> <td>266</td> </tr> 
+				<tr> <th>152</th> <td>nas</td> <td>as/8060</td> <td>35</td> <td>8000</td> <td>32000</td> <td>64</td> <td>8</td> <td>24</td> <td>370</td> <td>270</td> </tr> 
+				<tr> <th>153</th> <td>nas</td> <td>as/9000-dpc</td> <td>38</td> <td>16000</td> <td>32000</td> <td>128</td> <td>16</td> <td>32</td> <td>510</td> <td>426</td> </tr>
+				<tr> <th>154</th> <td>nas</td> <td>as/9000-n</td> <td>48</td> <td>4000</td> <td>24000</td> <td>32</td> <td>8</td> <td>24</td> <td>214</td> <td>151</td> </tr> 
+				<tr> <th>155</th> <td>nas</td> <td>as/9040</td> <td>38</td> <td>8000</td> <td>32000</td> <td>64</td> <td>8</td> <td>24</td> <td>326</td> <td>267</td> </tr> 
+				<tr> <th>156</th> <td>nas</td> <td>as/9060</td> <td>30</td> <td>16000</td> <td>32000</td> <td>256</td> <td>16</td> <td>24</td> <td>510</td> <td>603</td> </tr>
+				<tr> <th>157</th> <td>ncr</td> <td>v8535:ii</td> <td>112</td> <td>1000</td> <td>1000</td> <td>0</td> <td>1</td> <td>4</td> <td>8</td> <td>19</td> </tr>
+				<tr> <th>158</th> <td>ncr</td> <td>v8545:ii</td> <td>84</td> <td>1000</td> <td>2000</td> <td>0</td> <td>1</td> <td>6</td> <td>12</td> <td>21</td> </tr>
+				<tr> <th>159</th> <td>ncr</td> <td>v8555:ii</td> <td>56</td> <td>1000</td> <td>4000</td> <td>0</td> <td>1</td> <td>6</td> <td>17</td> <td>26</td> </tr>
+				<tr> <th>160</th> <td>ncr</td> <td>v8565:ii</td> <td>56</td> <td>2000</td> <td>6000</td> <td>0</td> <td>1</td> <td>8</td> <td>21</td> <td>35</td> </tr>
+				<tr> <th>161</th> <td>ncr</td> <td>v8565:ii-e</td> <td>56</td> <td>2000</td> <td>8000</td> <td>0</td> <td>1</td> <td>8</td> <td>24</td> <td>41</td> </tr> 
+				<tr> <th>162</th> <td>ncr</td> <td>v8575:ii</td> <td>56</td> <td>4000</td> <td>8000</td> <td>0</td> <td>1</td> <td>8</td> <td>34</td> <td>47</td> </tr> 
+				<tr> <th>163</th> <td>ncr</td> <td>v8585:ii</td> <td>56</td> <td>4000</td> <td>12000</td> <td>0</td> <td>1</td> <td>8</td> <td>42</td> <td>62</td> </tr>
+				<tr> <th>164</th> <td>ncr</td> <td>v8595:ii</td> <td>56</td> <td>4000</td> <td>16000</td> <td>0</td> <td>1</td> <td>8</td> <td>46</td> <td>78</td> </tr>
+				<tr> <th>165</th> <td>ncr</td> <td>v8635</td> <td>38</td> <td>4000</td> <td>8000</td> <td>32</td> <td>16</td> <td>32</td> <td>51</td> <td>80</td> </tr> 
+				<tr> <th>166</th> <td>ncr</td> <td>v8650</td> <td>38</td> <td>4000</td> <td>8000</td> <td>32</td> <td>16</td> <td>32</td> <td>116</td> <td>80</td> </tr>
+				<tr> <th>167</th> <td>ncr</td> <td>v8655</td> <td>38</td> <td>8000</td> <td>16000</td> <td>64</td> <td>4</td> <td>8</td> <td>100</td> <td>142</td> </tr>
+				<tr> <th>168</th> <td>ncr</td> <td>v8665</td> <td>38</td> <td>8000</td> <td>24000</td> <td>160</td> <td>4</td> <td>8</td> <td>140</td> <td>281</td> </tr>
+				<tr> <th>169</th> <td>ncr</td> <td>v8670</td> <td>38</td> <td>4000</td> <td>16000</td> <td>128</td> <td>16</td> <td>32</td> <td>212</td> <td>190</td> </tr>
+				<tr> <th>170</th> <td>nixdorf</td> <td>8890/30</td> <td>200</td> <td>1000</td> <td>2000</td> <td>0</td> <td>1</td> <td>2</td> <td>25</td> <td>21</td> </tr>
+				<tr> <th>171</th> <td>nixdorf</td> <td>8890/50</td> <td>200</td> <td>1000</td> <td>4000</td> <td>0</td> <td>1</td> <td>4</td> <td>30</td> <td>25</td> </tr>
+				<tr> <th>172</th> <td>nixdorf</td> <td>8890/70</td> <td>200</td> <td>2000</td> <td>8000</td> <td>64</td> <td>1</td> <td>5</td> <td>41</td> <td>67</td> </tr>
+				<tr> <th>173</th> <td>perkin-elmer</td> <td>3205</td> <td>250</td> <td>512</td> <td>4000</td> <td>0</td> <td>1</td> <td>7</td> <td>25</td> <td>24</td> </tr>
+				<tr> <th>174</th> <td>perkin-elmer</td> <td>3210</td> <td>250</td> <td>512</td> <td>4000</td> <td>0</td> <td>4</td> <td>7</td> <td>50</td> <td>24</td> </tr>
+				<tr> <th>175</th> <td>perkin-elmer</td> <td>3230</td> <td>250</td> <td>1000</td> <td>16000</td> <td>1</td> <td>1</td> <td>8</td> <td>50</td> <td>64</td> </tr>
+				<tr> <th>176</th> <td>prime</td> <td>50-2250</td> <td>160</td> <td>512</td> <td>4000</td> <td>2</td> <td>1</td> <td>5</td> <td>30</td> <td>25</td> </tr> 
+				<tr> <th>177</th> <td>prime</td> <td>50-250-ii</td> <td>160</td> <td>512</td> <td>2000</td> <td>2</td> <td>3</td> <td>8</td> <td>32</td> <td>20</td> </tr>
+				<tr> <th>178</th> <td>prime</td> <td>50-550-ii</td> <td>160</td> <td>1000</td> <td>4000</td> <td>8</td> <td>1</td> <td>14</td> <td>38</td> <td>29</td> </tr>
+				<tr> <th>179</th> <td>prime</td> <td>50-750-ii</td> <td>160</td> <td>1000</td> <td>8000</td> <td>16</td> <td>1</td> <td>14</td> <td>60</td> <td>43</td> </tr>
+				<tr> <th>180</th> <td>prime</td> <td>50-850-ii</td> <td>160</td> <td>2000</td> <td>8000</td> <td>32</td> <td>1</td> <td>13</td> <td>109</td> <td>53</td> </tr>
+				<tr> <th>181</th> <td>siemens</td> <td>7.521</td> <td>240</td> <td>512</td> <td>1000</td> <td>8</td> <td>1</td> <td>3</td> <td>6</td> <td>19</td> </tr>
+				<tr> <th>182</th> <td>siemens</td> <td>7.531</td> <td>240</td> <td>512</td> <td>2000</td> <td>8</td> <td>1</td> <td>5</td> <td>11</td> <td>22</td> </tr> 
+				<tr> <th>183</th> <td>siemens</td> <td>7.536</td> <td>105</td> <td>2000</td> <td>4000</td> <td>8</td> <td>3</td> <td>8</td> <td>22</td> <td>31</td> </tr> 
+				<tr> <th>184</th> <td>siemens</td> <td>7.541</td> <td>105</td> <td>2000</td> <td>6000</td> <td>16</td> <td>6</td> <td>16</td> <td>33</td> <td>41</td> </tr>
+				<tr> <th>185</th> <td>siemens</td> <td>7.551</td> <td>105</td> <td>2000</td> <td>8000</td> <td>16</td> <td>4</td> <td>14</td> <td>58</td> <td>47</td> </tr>
+				<tr> <th>186</th> <td>siemens</td> <td>7.561</td> <td>52</td> <td>4000</td> <td>16000</td> <td>32</td> <td>4</td> <td>12</td> <td>130</td> <td>99</td> </tr>
+				<tr> <th>187</th> <td>siemens</td> <td>7.865-2</td> <td>70</td> <td>4000</td> <td>12000</td> <td>8</td> <td>6</td> <td>8</td> <td>75</td> <td>67</td> </tr>
+				<tr> <th>188</th> <td>siemens</td> <td>7.870-2</td> <td>59</td> <td>4000</td> <td>12000</td> <td>32</td> <td>6</td> <td>12</td> <td>113</td> <td>81</td> </tr>
+				<tr> <th>189</th> <td>siemens</td> <td>7.872-2</td> <td>59</td> <td>8000</td> <td>16000</td> <td>64</td> <td>12</td> <td>24</td> <td>188</td> <td>149</td> </tr>
+				<tr> <th>190</th> <td>siemens</td> <td>7.875-2</td> <td>26</td> <td>8000</td> <td>24000</td> <td>32</td> <td>8</td> <td>16</td> <td>173</td> <td>183</td> </tr>
+				<tr> <th>191</th> <td>siemens</td> <td>7.880-2</td> <td>26</td> <td>8000</td> <td>32000</td> <td>64</td> <td>12</td> <td>16</td> <td>248</td> <td>275</td> </tr>
+				<tr> <th>192</th> <td>siemens</td> <td>7.881-2</td> <td>26</td> <td>8000</td> <td>32000</td> <td>128</td> <td>24</td> <td>32</td> <td>405</td> <td>382</td> </tr>
+				<tr> <th>193</th> <td>sperry</td> <td>1100/61-h1</td> <td>116</td> <td>2000</td> <td>8000</td> <td>32</td> <td>5</td> <td>28</td> <td>70</td> <td>56</td> </tr>
+				<tr> <th>194</th> <td>sperry</td> <td>1100/81</td> <td>50</td> <td>2000</td> <td>32000</td> <td>24</td> <td>6</td> <td>26</td> <td>114</td> <td>182</td> </tr> 
+				<tr> <th>195</th> <td>sperry</td> <td>1100/82</td> <td>50</td> <td>2000</td> <td>32000</td> <td>48</td> <td>26</td> <td>52</td> <td>208</td> <td>227</td> </tr>
+				<tr> <th>196</th> <td>sperry</td> <td>1100/83</td> <td>50</td> <td>2000</td> <td>32000</td> <td>112</td> <td>52</td> <td>104</td> <td>307</td> <td>341</td> </tr> 
+				<tr> <th>197</th> <td>sperry</td> <td>1100/84</td> <td>50</td> <td>4000</td> <td>32000</td> <td>112</td> <td>52</td> <td>104</td> <td>397</td> <td>360</td> </tr>
+				<tr> <th>198</th> <td>sperry</td> <td>1100/93</td> <td>30</td> <td>8000</td> <td>64000</td> <td>96</td> <td>12</td> <td>176</td> <td>915</td> <td>919</td> </tr> 
+				<tr> <th>199</th> <td>sperry</td> <td>1100/94</td> <td>30</td> <td>8000</td> <td>64000</td> <td>128</td> <td>12</td> <td>176</td> <td>1150</td> <td>978</td> </tr> 
+				<tr> <th>200</th> <td>sperry</td> <td>80/3</td> <td>180</td> <td>262</td> <td>4000</td> <td>0</td> <td>1</td> <td>3</td> <td>12</td> <td>24</td> </tr> 
+				<tr> <th>201</th> <td>sperry</td> <td>80/4</td> <td>180</td> <td>512</td> <td>4000</td> <td>0</td> <td>1</td> <td>3</td> <td>14</td> <td>24</td> </tr> 
+				<tr> <th>202</th> <td>sperry</td> <td>80/5</td> <td>180</td> <td>262</td> <td>4000</td> <td>0</td> <td>1</td> <td>3</td> <td>18</td> <td>24</td> </tr> 
+				<tr> <th>203</th> <td>sperry</td> <td>80/6</td> <td>180</td> <td>512</td> <td>4000</td> <td>0</td> <td>1</td> <td>3</td> <td>21</td> <td>24</td> </tr> 
+				<tr> <th>204</th> <td>sperry</td> <td>80/8</td> <td>124</td> <td>1000</td> <td>8000</td> <td>0</td> <td>1</td> <td>8</td> <td>42</td> <td>37</td> </tr> 
+				<tr> <th>205</th> <td>sperry</td> <td>90/80-model-3</td> <td>98</td> <td>1000</td> <td>8000</td> <td>32</td> <td>2</td> <td>8</td> <td>46</td> <td>50</td> </tr>
+				<tr> <th>206</th> <td>sratus</td> <td>32</td> <td>125</td> <td>2000</td> <td>8000</td> <td>0</td> <td>2</td> <td>14</td> <td>52</td> <td>41</td> </tr> 
+				<tr> <th>207</th> <td>wang</td> <td>vs-100</td> <td>480</td> <td>512</td> <td>8000</td> <td>32</td> <td>0</td> <td>0</td> <td>67</td> <td>47</td> </tr> 
+				<tr> <th>208</th> <td>wang</td> <td>vs-90</td> <td>480</td> <td>1000</td> <td>4000</td> <td>0</td> <td>0</td> <td>0</td> <td>45</td> <td>25</td> </tr> 
+		</tbody> </table>
+		<br>
+    </div>
+	
+	<div id="spoiler1" style="display:none">
+	<br>
+		<p align="center"><b>Korelacja</b></p> <br>
+		<table border="1" class="dataframe"> <thead> <tr style="text-align: right;"> 
+		<th></th>
+		<th>MYCT</th> <th>MMIN</th> <th>MMAX</th> <th>CACH</th> <th>CHMIN</th> <th>CHMAX</th> <th>PRP</th> <th>ERP</th> </tr> </thead> 
+		<tbody> <tr> <th>MYCT</th> <td>1.000000</td> <td>-0.335642</td> <td>-0.378561</td> <td>-0.321000</td> <td>-0.301090</td> <td>-0.250502</td> <td>-0.307099</td> <td>-0.288396</td> </tr> 
+		<tr> <th>MMIN</th> <td>-0.335642</td> <td>1.000000</td> <td>0.758157</td> <td>0.534729</td> <td>0.517189</td> <td>0.266907</td> <td>0.794931</td> <td>0.819292</td> </tr> 
+		<tr> <th>MMAX</th> <td>-0.378561</td> <td>0.758157</td> <td>1.000000</td> <td>0.537990</td> <td>0.560513</td> <td>0.527246</td> <td>0.863004</td> <td>0.901202</td> </tr> 
+		<tr> <th>CACH</th> <td>-0.321000</td> <td>0.534729</td> <td>0.537990</td> <td>1.000000</td> <td>0.582245</td> <td>0.487846</td> <td>0.662641</td> <td>0.648620</td> </tr> 
+		<tr> <th>CHMIN</th> <td>-0.301090</td> <td>0.517189</td> <td>0.560513</td> <td>0.582245</td> <td>1.000000</td> <td>0.548281</td> <td>0.608903</td> <td>0.610580</td> </tr> 
+		<tr> <th>CHMAX</th> <td>-0.250502</td> <td>0.266907</td> <td>0.527246</td> <td>0.487846</td> <td>0.548281</td> <td>1.000000</td> <td>0.605209</td> <td>0.592156</td> </tr> 
+		<tr> <th>PRP</th> <td>-0.307099</td> <td>0.794931</td> <td>0.863004</td> <td>0.662641</td> <td>0.608903</td> <td>0.605209</td> <td>1.000000</td> <td>0.966472</td> </tr> 
+		<tr> <th>ERP</th> <td>-0.288396</td> <td>0.819292</td> <td>0.901202</td> <td>0.648620</td> <td>0.610580</td> <td>0.592156</td> <td>0.966472</td> <td>1.000000</td> </tr> 
+		</tbody> </table>
+		<br>
+	</div>
+	
+	<div class="reg" id="spoiler2" style="display:none">
+		<br>
+		{{regsummary}}
+		<br>
+	</div>
+	
+	</body>
+</html>
